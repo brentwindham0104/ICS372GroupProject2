@@ -1,18 +1,18 @@
 package gui;
 
-import buttons.GUIButton;
+import buttons.GUIToggleButton;
 import javafx.application.Application;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class GUI extends Application implements RefrigeratorDisplay {
-    private GUIButton powerButton;
-    private GUIButton doorButton;
+    private GUIToggleButton powerButton;
+    private GUIToggleButton doorButton;
 
     private TextField externalTemperatureInput;
     private TextField internalTemperatureInput;
-    
+
     private Text actualTemperature;
     private Text powerStatus;
     private Text doorStatus;
