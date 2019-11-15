@@ -4,9 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
-public class DoorButtonOff extends Button implements EventHandler<ActionEvent> {
-    public DoorButtonOff(String name) {
+public class DoorButtonClose extends GUIToggleButton implements EventHandler<ActionEvent> {
+    public DoorButtonClose(String name) {
         super(name);
+        setOnAction(this);
     }
 
     @Override
