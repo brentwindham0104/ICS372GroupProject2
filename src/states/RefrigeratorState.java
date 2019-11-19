@@ -22,7 +22,7 @@ public abstract class RefrigeratorState {
     /**
      * Specifies the actions to be taken when power is on.
      */
-    public void  handleEvent(PowerOnEvent event) {
+    public void handleEvent(PowerOnEvent event) {
 
     }
 
