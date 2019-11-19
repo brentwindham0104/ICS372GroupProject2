@@ -49,7 +49,7 @@ public abstract class RefrigeratorState {
     /**
      * Process cooling engage event
      */
-    public void  handleEvent(CoolingOnEvent event) {
+    public void handleEvent(CoolingOnEvent event) {
 
     }
 
