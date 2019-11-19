@@ -1,4 +1,4 @@
-package gui;
+package display;
 
 import buttons.GUIToggleButton;
 import javafx.application.Application;
@@ -6,7 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class GUI extends Application implements RefrigeratorDisplay {
+public class GUIDisplay extends Application implements RefrigeratorDisplay {
     private GUIToggleButton powerButton;
     private GUIToggleButton doorButton;
 
