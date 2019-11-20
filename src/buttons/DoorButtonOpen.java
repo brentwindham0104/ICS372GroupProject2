@@ -12,5 +12,6 @@ public class DoorButtonOpen extends GUIToggleButton implements EventHandler<Acti
 
     @Override
     public void handle(ActionEvent event) {
+        System.out.println("Door Open");
     }
 }

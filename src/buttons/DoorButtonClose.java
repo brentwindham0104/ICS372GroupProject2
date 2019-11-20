@@ -12,5 +12,7 @@ public class DoorButtonClose extends GUIToggleButton implements EventHandler<Act
 
     @Override
     public void handle(ActionEvent event) {
+
+        System.out.println("Door Close");
     }
 }

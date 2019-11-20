@@ -8,5 +8,6 @@ public abstract class GUIToggleButton extends ToggleButton implements EventHandl
     public GUIToggleButton(String name) {
         super(name);
         setOnAction(this);
+        this.setPrefWidth(50.0);
     }
 }

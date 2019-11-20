@@ -12,6 +12,6 @@ public class PowerButtonOn extends GUIToggleButton implements EventHandler<Actio
 
     @Override
     public void handle(ActionEvent event) {
-
+        System.out.println("Power On");
     }
 }
