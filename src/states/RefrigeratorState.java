@@ -59,6 +59,20 @@ public abstract class RefrigeratorState {
     public void handleEvent(CoolingOffEvent event) {
 
     }
+    
+    /**
+     * Process setting of external temperature
+     */
+    public void handleEvent(ExternalTempSetEvent event) {
+
+    }
+
+    /**
+     * Process setting of desired temperature
+     */
+    public void handleEvent(GoalTempSetEvent event) {
+
+    }
 
 }
 
