@@ -38,16 +38,10 @@ public class RefrigeratorContext {
         return instance;
     }
 
-    /**
-     * The display could change. So we have to get its reference.
-     * 
-     * @param display
-     *            The current display object
-     */
+    //Yet to implement a RefridgeratorDisplay Object
     public void setDisplay(RefrigeratorDisplay display) {
-        this.display = display;
+      //TODO
     }
-
 
     /**
      * Lets cooling on state be starting state 
@@ -190,8 +184,8 @@ public class RefrigeratorContext {
      * states from changes to the way the system utilizes the state changes.
      * 
      */
-    public void showInternalTemperature(int value) {
-        display.showInternalTemperature(value);
+    public void showInternalTemperature() {
+        display.showInternalTemperature();
     }
 
     /**
@@ -199,8 +193,8 @@ public class RefrigeratorContext {
      * states from changes to the way the system utilizes the state changes.
      * 
      */
-    public void showExternalTemperature(int value) {
-        display.showExternalTemperature(value);
+    public void showExternalTemperature() {
+        display.showExternalTemperature();
     }
     
 }

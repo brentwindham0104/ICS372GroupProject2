@@ -27,36 +27,32 @@ public interface RefrigeratorDisplay {
     public void showDoorOpened();
     
     /**
-     * Indicate refrigerator is off
+     * indicate refrigerator is off
      */
     public void showRefrigeratorOff();
    
     /**
-     * Indicate refrigerator is on
+     * indicate refrigerator is on
      */
     public void showRefrigeratorOn();
 
     /**
-     * Indicate that refrigerator is not cooling
+     * indicate that refrigerator is not cooling
      */
     public void showRefrigeratorCoolingOff();
     
     /**
-     * Indicate that refrigerator is  cooling
+     * indicate that refrigerator is  cooling
      */
     public void showRefrigeratorCoolingOn();
     
     /**
-     * Indicate inside temperature
-     *  * @param temp
-     *            current inside temp
+     * indicate inside temperature
      */
-    public void showInternalTemperature(int temp);
+    public void showInternalTemperature();
    
     /**
-     * Indicate external temperature
-     *  * @param temp
-     *            current external temp
+     * indicate outside temperature
      */
-    public void showExternalTemperature(int temp);
+    public void showExternalTemperature();
 }
