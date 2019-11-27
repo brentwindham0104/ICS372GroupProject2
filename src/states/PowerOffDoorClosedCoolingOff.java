@@ -16,6 +16,7 @@ public class PowerOffDoorClosedCoolingOff extends RefrigeratorState {
         }
         return instance;
     }
+	//just added a test comment, to see if I fixed merge issue.
     @Override
     public void enter() {
         RefrigeratorContext.instance().showRefrigeratorOff();
