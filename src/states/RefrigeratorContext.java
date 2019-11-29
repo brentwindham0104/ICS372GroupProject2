@@ -23,7 +23,7 @@ public class RefrigeratorContext {
      */
     private RefrigeratorContext() {
         instance = this;
-        currentState = PowerOnDoorClosedCoolingOff.instance();
+        currentState = IdlingModeDoorShut.instance();
     }
 
     /**
@@ -38,16 +38,22 @@ public class RefrigeratorContext {
         return instance;
     }
 
-    //Yet to implement a RefridgeratorDisplay Object
+    /**
+     * The display could change. So we have to get its reference.
+     * 
+     * @param display
+     *            The current display object
+     */
     public void setDisplay(RefrigeratorDisplay display) {
-      //TODO
+        this.display = display;
     }
+
 
     /**
      * Lets cooling on state be starting state 
      */
     public void initialize() {
-        instance.changeState(PowerOnDoorClosedCoolingOn.instance());
+        instance.changeState(CoolingModeDoorShut.instance());
     }
 
     /**
@@ -106,7 +112,178 @@ public class RefrigeratorContext {
     public void handleEvent(PowerOnEvent event) {
         currentState.handleEvent(event);
     }
-
+    
+    /**
+     * NOTE: If Dave implements the temperature simulation functionality
+     * all methods titled tempCalculate below should be discarded.
+     * 
+     * When the current state is "CoolingModeDoorOpen" State this method will be called
+     * every second the clock ticks. 
+     * 
+     * This method is supposed to have a math functions which takes as input 
+     * the outside temp, inside temp, the goal temp.
+     * The method then updates the refrigerator GUI display with the new internal temp.
+     */
+    public void tempCalculate(TempContext tempContext, CoolingModeDoorOpen currentState) { 
+  	  int newTemp = 0;
+  	  
+  	  /* 
+  	   * Math equation goes here, You can access all current temps
+  	   * via tempContex.getExternalTemp(), tempContext.getInternalTemp()
+  	   * or tempContext.getGoalTemp() methods of the tempContext class.
+  	   * 
+  	   * input the three temps into your function and then display 
+  	   * the resulting temp value. Send the new temp to be displayed
+  	   * via the "display.showInternalTemperature()" method below.
+  	   */
+ 	  
+  	  
+  	  /*
+  	   * Math function goes here
+  	   */
+  	  
+  	  display.showInternalTemp(newTemp);
+  }
+    
+    /**
+     * When the current state is "CoolingModeDoorShut" State this method will be called
+     * every second the clock ticks. 
+     * 
+     * This method is supposed to have a math functions which takes as input 
+     * the outside temp, inside temp, the goal temp.
+     * The method then updates the refrigerator GUI display with the new internal temp.
+     */
+    public void tempCalculate(TempContext tempContext, CoolingModeDoorShut currentState) { 
+  	  int newTemp = 0;
+  	  
+  	  /* 
+  	   * Math equation goes here, You can access all current temps
+  	   * via tempContex.getExternalTemp(), tempContext.getInternalTemp()
+  	   * or tempContext.getGoalTemp() methods of the tempContext class.
+  	   * 
+  	   * input the three temps into your function and then display 
+  	   * the resulting temp value. Send the new temp to be displayed
+  	   * via the "display.showInternalTemperature()" method below.
+  	   */
+ 	  
+  	  
+  	  /*
+  	   * Math function goes here
+  	   */
+  	  
+  	  display.showInternalTemp(newTemp);
+  }
+    /**
+     * When the current state is "IdlingModeDoorOpen" State this method will be called
+     * every second the clock ticks. 
+     * 
+     * This method is supposed to have a math functions which takes as input 
+     * the outside temp, inside temp, the goal temp.
+     * The method then updates the refrigerator GUI display with the new internal temp.
+     */
+    public void tempCalculate(TempContext tempContext, IdlingModeDoorOpen currentState) { 
+  	  int newTemp = 0;
+  	  
+  	 /* 
+  	   * Math equation goes here, You can access all current temps
+  	   * via tempContex.getExternalTemp(), tempContext.getInternalTemp()
+  	   * or tempContext.getGoalTemp() methods of the tempContext class.
+  	   * 
+  	   * input the three temps into your function and then display 
+  	   * the resulting temp value. Send the new temp to be displayed
+  	   * via the "display.showInternalTemperature()" method below.
+  	   */
+ 	  
+  	  
+  	  /*
+  	   * Math function goes here
+  	   */
+  	  
+  	  display.showInternalTemp(newTemp);
+  	}
+    
+    /**
+     * When the current state is "IdlingModeDoorShut" State this method will be called
+     * every second the clock ticks. 
+     * 
+     * This method is supposed to have a math functions which takes as input 
+     * the outside temp, inside temp, the goal temp.
+     * The method then updates the refrigerator GUI display with the new internal temp.
+     */
+    public void tempCalculate(TempContext tempContext, IdlingModeDoorShut currentState) { 
+  	  int newTemp = 0;
+  	  
+  	 /* 
+  	   * Math equation goes here, You can access all current temps
+  	   * via tempContex.getExternalTemp(), tempContext.getInternalTemp()
+  	   * or tempContext.getGoalTemp() methods of the tempContext class.
+  	   * 
+  	   * input the three temps into your function and then display 
+  	   * the resulting temp value. Send the new temp to be displayed
+  	   * via the "display.showInternalTemperature()" method below.
+  	   */	  
+  	  
+  	  /*
+  	   * Math function goes here
+  	   */
+ 
+  	  display.showInternalTemp(newTemp);
+  	}
+    
+    /**
+     * When the current state is "OffModeDoorOpen" State this method will be called
+     * every second the clock ticks. 
+     * 
+     * This method is supposed to have a math functions which takes as input 
+     * the outside temp, inside temp, the goal temp.
+     * The method then updates the refrigerator GUI display with the new internal temp.
+     */
+    public void tempCalculate(TempContext tempContext, OffModeDoorOpen currentState) { 
+  	  int newTemp = 0;
+  	  
+  	 /* 
+  	   * Math equation goes here, You can access all current temps
+  	   * via tempContex.getExternalTemp(), tempContext.getInternalTemp()
+  	   * or tempContext.getGoalTemp() methods of the tempContext class.
+  	   * 
+  	   * input the three temps into your function and then display 
+  	   * the resulting temp value. Send the new temp to be displayed
+  	   * via the "display.showInternalTemperature()" method below.
+  	   */	  
+  	  
+  	  /*
+  	   * Math function goes here
+  	   */
+  	  
+  	  display.showInternalTemp(newTemp);
+    }
+    /**
+     * When the current state is "OffModeDoorShut" State this method will be called
+     * every second the clock ticks. 
+     * 
+     * This method is supposed to have a math functions which takes as input 
+     * the outside temp, inside temp, the goal temp.
+     * The method then updates the refrigerator GUI display with the new internal temp.
+     */
+    public void tempCalculate(TempContext tempContext, OffModeDoorShut currentState) { 
+  	  int newTemp = 0;
+  	  
+  	 /* 
+  	   * Math equation goes here, You can access all current temps
+  	   * via tempContex.getExternalTemp(), tempContext.getInternalTemp()
+  	   * or tempContext.getGoalTemp() methods of the tempContext class.
+  	   * 
+  	   * input the three temps into your function and then display 
+  	   * the resulting temp value. Send the new temp to be displayed
+  	   * via the "display.showInternalTemperature()" method below.
+  	   */	  
+  	  
+  	  /*
+  	   * Math function goes here
+  	   */
+  	  
+  	  display.showInternalTemp(newTemp);
+  }
     /**
      * This invokes the right method of the display. This helps protect the
      * states from changes to the way the system utilizes the state changes.
@@ -184,8 +361,8 @@ public class RefrigeratorContext {
      * states from changes to the way the system utilizes the state changes.
      * 
      */
-    public void showInternalTemperature() {
-        display.showInternalTemperature();
+    public void showInternalTemp(int value) {
+        display.showInternalTemp(value);
     }
 
     /**
@@ -193,8 +370,8 @@ public class RefrigeratorContext {
      * states from changes to the way the system utilizes the state changes.
      * 
      */
-    public void showExternalTemperature() {
-        display.showExternalTemperature();
+    public void showExternalTemp(int value) {
+        display.showExternalTemp(value);
     }
     
 }
