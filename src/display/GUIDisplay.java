@@ -1,55 +1,184 @@
 package display;
 
-import buttons.GUIToggleButton;
+import buttons.DoorButtonClose;
+import buttons.DoorButtonOpen;
+import buttons.PowerButtonOff;
+import buttons.PowerButtonOn;
+import buttons.ExternalTempButtonSet;
+import buttons.GoalTempButtonSet;
+import buttons.GUIButton;
+
+
 import javafx.application.Application;
-import javafx.scene.control.TextField;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import javafx.scene.control.TextField
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+import states.RefrigeratorContext;
 
+/**
+ * GUI to implement the RefrigeratorDisplay
+ *
+ */
 public class GUIDisplay extends Application implements RefrigeratorDisplay {
-    private GUIToggleButton powerButton;
-    private GUIToggleButton doorButton;
-
+    private GUIButton powerOnSwitcher;
+    private GUIButton powerOffSwitcher;
+    private GUIButton doorCloser;
+    private GUIButton doorOpener;
+    private GUIButton goalTemperatureInputter;
+    private GUIButton externalTemperatureInputter;
+    
+    private Text powerStatus = new Text("Fridge Off");
+    private Text doorStatus = new Text("Door Closed");
+    private Text lightStatus = new Text("Light Off");
+    private Text coolingStatus = new Text("Not Cooling");
+    private Text internalStatus= new Text("       ");
+    private Text externalStatus= new Text("       ");
+    
+    private TextField goalTemperatureInput;
     private TextField externalTemperatureInput;
-    private TextField internalTemperatureInput;
-
-    private Text actualTemperature;
-    private Text powerStatus;
-    private Text doorStatus;
-    private Text coolingStatus;
-
-    @Override
+    
+    private static RefrigeratorDisplay display;
+    private RefrigeratorContext refrigeratorContext;
+    
     public void start(Stage primaryStage) throws Exception {
+        
+    	refrigeratorContext = RefrigeratorContext.instance();
+        refrigeratorContext.setDisplay(this);
+        display = this;    
+        
+        powerOnSwitcher = new OnButton("On");
+        powerOffSwitcher = new OffButton("Off");
+        doorOpener = new DoorOpenButton("open door");  
+        doorCloser = new DoorCloseButton("close door"); 
+        externalTemperatureInputter = new SetExternalTempButton("Set Outside Temp");
+        goalTemperatureInputter = new SetGoalTempButton("Set Desired Fridge Temp");
+        
+        GridPane pane = new GridPane();
+        pane.setHgap(10);
+        pane.setVgap(10);
+        pane.setPadding(new Insets(10, 10, 10, 10));
+        
+        
+        pane.add(coolingStatus, 0, 0);
+        pane.add(internalStatus, 2, 0);
+        pane.add(externalStatus, 4, 0);
+        pane.add(lightStatus, 6, 0);
+        pane.add(doorStatus, 8, 0);
+        pane.add(powerStatus, 10, 0);
+        
+        
+        pane.add(powerOnSwitcher, 12, 0);
+        pane.add(powerOffSwitcher, 0, 1);
+        pane.add(doorOpener, 2, 1);
+        pane.add(doorCloser, 4, 1);
+        pane.add(goalTemperatureInput, 6, 1);
+        pane.add(externalStatus, 8, 1);
+        pane.add(externalTemperatureInput, 10, 1);
+        pane.add(internalStatus, 12, 1);   
+        
+        showDoorClosed();
+        showLightOff();
+        showRefrigeratorOff();
+        showInternalTemp();
+        showExternalTempe();
+        
+        Scene scene = new Scene(pane);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Project 2");
+        try {
+            while (refrigeratorContext == null) {
+                Thread.sleep(1000);
+            }
+        } catch (Exception e) {
 
+        }
+        primaryStage.show();
+        primaryStage.addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent window) {
+                System.exit(0);
+            }
+        });
+    }
+    
+    /**
+     * satisfying RefrigeratorDisplay interface
+     */
+   
+    
+    /**
+     * Indicate that the light is on
+     */
+    public void showLightOn() {
+        lightStatus.setText("Light On");
     }
 
+    /**
+     * Indicate that the light is off
+     */
+    public void showLightOff() {
+        lightStatus.setText("Light Off");
+    }
+
+    /**
+     * Indicate that the door is now closed
+     */
     @Override
-    public void showInternalTemperature() {
-
+    public void showDoorClosed() {
+        doorStatus.setText("Door Closed");
     }
 
+    /**
+     * Indicate that the door is now open
+     */
     @Override
-    public void showExternalTemperature() {
-
+    public void showDoorOpened() {
+        doorStatus.setText("Door Opened");
+    }
+    
+    /**
+     * Indicate refrigerator is off
+     */
+    public void showRefrigeratorOff(){
+        powerStatus.setText("Fridge Off");
+    }
+    /**
+     * Indicate refrigerator is on
+     */
+    public void showRefrigeratorOn(){
+        powerStatus.setText("Fridge On");
     }
 
-    @Override
-    public void showPower() {
-
+    /**
+     * Indicate that refrigerator is not cooling
+     */
+    public void showRefrigeratorCoolingOff() {
+    	coolingStatus.setText("Cooling Off");
     }
-
-    @Override
-    public void showDoor() {
-
+    
+    /**
+     * Indicate that refrigerator is  cooling
+     */
+    public void showRefrigeratorCoolingOn() {
+    	coolingStatus.setText("Cooling On");
     }
-
-    @Override
-    public void showLight() {
-
+    
+    /**
+     * Indicate inside temperature
+     */
+    public void showInternalTemp() {
+    	//TODO
     }
-
-    @Override
-    public void showCooling() {
-
-    }
+   
+    /**
+     * Indicate outside temperature
+     */
+    public void showExternalTemp() {
+    	//TODO
+  }
 }
