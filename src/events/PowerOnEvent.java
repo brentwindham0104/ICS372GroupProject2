@@ -1,13 +1,13 @@
 package events;
 
 public class PowerOnEvent extends RefrigeratorEvent {
-    private PowerOnEvent instance;
+    private static PowerOnEvent instance;
 
     private PowerOnEvent() {
 
     }
 
-    public PowerOnEvent getInstance() {
+    public static PowerOnEvent getInstance() {
         if (instance == null) {
             instance = new PowerOnEvent();
         }

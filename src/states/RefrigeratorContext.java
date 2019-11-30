@@ -1,12 +1,8 @@
 package states;
 
 import display.RefrigeratorDisplay;
-import events.CoolingOffEvent;
-import events.CoolingOnEvent;
-import events.DoorCloseEvent;
-import events.DoorOpenEvent;
-import events.PowerOffEvent;
-import events.PowerOnEvent;
+import events.*;
+import temperature.Temperature;
 
 
 /**
@@ -22,8 +18,9 @@ public class RefrigeratorContext {
      * Make it a singleton
      */
     private RefrigeratorContext() {
+        Temperature.getInstance();
         instance = this;
-        currentState = PowerOnDoorClosedCoolingOff.instance();
+        currentState = IdleModeDoorClosed.instance();
     }
 
     /**
@@ -39,16 +36,10 @@ public class RefrigeratorContext {
     }
 
     //Yet to implement a RefridgeratorDisplay Object
-    public void setDisplay(RefrigeratorDisplay display) {
-      //TODO
+    public void setDisplay(RefrigeratorDisplay display){
+        this.display = display;
     }
 
-    /**
-     * Lets cooling on state be starting state 
-     */
-    public void initialize() {
-        instance.changeState(PowerOnDoorClosedCoolingOn.instance());
-    }
 
     /**
      * Called from the states to change the current state
@@ -78,7 +69,28 @@ public class RefrigeratorContext {
      */
     public void handleEvent(CoolingOffEvent event) {
         currentState.handleEvent(event);
-    };
+    }
+
+    /**
+     * This invokes the right method of the display. This helps protect the
+     * states from changes to the way the system utilizes the state changes.
+     *
+     */
+    public void setDesiredTemp(int temp) {
+        Temperature.getInstance().setDesiredTemperature(temp);
+    }
+
+
+    /**
+     * This invokes the right method of the display. This helps protect the
+     * states from changes to the way the system utilizes the state changes.
+     *
+     */
+    public void setOutsideTemp(int value) {
+        Temperature.getInstance().setOutSideTemperature(value);
+    }
+
+
 
     /**
      * Process door close request
@@ -104,6 +116,10 @@ public class RefrigeratorContext {
      * Process power on request
      */
     public void handleEvent(PowerOnEvent event) {
+        currentState.handleEvent(event);
+    }
+
+    public void handleEvent(TemperatureChanged event) {
         currentState.handleEvent(event);
     }
 
@@ -184,8 +200,8 @@ public class RefrigeratorContext {
      * states from changes to the way the system utilizes the state changes.
      * 
      */
-    public void showInternalTemperature() {
-        display.showInternalTemperature();
+    public void showInternalTemperature(String string) {
+        display.showInternalTemperature(string);
     }
 
     /**
@@ -193,8 +209,8 @@ public class RefrigeratorContext {
      * states from changes to the way the system utilizes the state changes.
      * 
      */
-    public void showExternalTemperature() {
-        display.showExternalTemperature();
+    public void showExternalTemperature(String string) {
+        display.showExternalTemperature(string);
     }
     
 }

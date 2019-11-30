@@ -49,10 +49,15 @@ public interface RefrigeratorDisplay {
     /**
      * indicate inside temperature
      */
-    public void showInternalTemperature();
+    public void showInternalTemperature(String string);
    
     /**
      * indicate outside temperature
      */
-    public void showExternalTemperature();
+    public void showExternalTemperature(String string);
+
+
+    public int getDesiredTemperature();
+
+    public int getExternalTemperature();
 }

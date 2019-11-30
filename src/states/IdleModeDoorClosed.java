@@ -4,17 +4,17 @@ import events.CoolingOnEvent;
 import events.DoorOpenEvent;
 import events.PowerOffEvent;
 
-public class PowerOnDoorClosedCoolingOff extends RefrigeratorState{
+public class IdleModeDoorClosed extends RefrigeratorState{
 
-    private static PowerOnDoorClosedCoolingOff instance;
+    private static IdleModeDoorClosed instance;
 
-    private PowerOnDoorClosedCoolingOff(){
+    private IdleModeDoorClosed(){
 
     }
 
-    public static PowerOnDoorClosedCoolingOff instance(){
+    public static IdleModeDoorClosed instance(){
         if(instance==null){
-            instance = new PowerOnDoorClosedCoolingOff();
+            instance = new IdleModeDoorClosed();
         }
         return instance;
     }
@@ -34,20 +34,21 @@ public class PowerOnDoorClosedCoolingOff extends RefrigeratorState{
 
     @Override
     public void handleEvent(PowerOffEvent event) {
-        RefrigeratorContext.instance().changeState(PowerOffDoorClosedCoolingOff.instance());
+        RefrigeratorContext.instance().changeState(OffModeDoorClosed.instance());
 
     }
 
     @Override
     public void handleEvent(DoorOpenEvent event) {
-        RefrigeratorContext.instance().changeState(PowerOnDoorOpenCoolingOff.instance());
+        RefrigeratorContext.instance().changeState(IdleModeDoorOpen.instance());
 
     }
 
     @Override
     public void handleEvent(CoolingOnEvent event) {
-        RefrigeratorContext.instance().changeState(PowerOnDoorClosedCoolingOn.instance());
+        RefrigeratorContext.instance().changeState(CoolingModeDoorClosed.instance());
 
     }
+
 
 }

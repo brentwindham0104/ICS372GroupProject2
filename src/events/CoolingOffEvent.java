@@ -1,13 +1,13 @@
 package events;
 
 public class CoolingOffEvent extends RefrigeratorEvent {
-    private CoolingOffEvent instance;
+    private static CoolingOffEvent instance;
 
     private CoolingOffEvent() {
 
     }
 
-    public CoolingOffEvent getInstance() {
+    public static CoolingOffEvent getInstance() {
         if (instance == null) {
             instance = new CoolingOffEvent();
         }

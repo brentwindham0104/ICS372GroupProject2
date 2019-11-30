@@ -1,13 +1,13 @@
 package events;
 
 public class DoorOpenEvent extends RefrigeratorEvent {
-    private DoorOpenEvent instance;
+    private static DoorOpenEvent instance;
 
     private DoorOpenEvent() {
 
     }
 
-    public DoorOpenEvent getInstance() {
+    public static DoorOpenEvent getInstance() {
         if (instance == null) {
             instance = new DoorOpenEvent();
         }
