@@ -39,17 +39,19 @@ public class OffModeDoorOpen extends RefrigeratorState {
 
     @Override
     public void handleEvent(TemperatureChanged event) {
-        if(Temperature.getInstance().getOutSideTemperature()>
-                Temperature.getInstance().getFridgeTemperature()){
-            if(Temperature.getInstance().getRate()>1){
-                Temperature.getInstance().incrementTemperature(1);
-            }else{
-                Temperature.getInstance().incrementTemperature(1);
+        if (Temperature.getInstance().getFridgeTemperature() != Temperature.getInstance().getOutSideTemperature()) {
+            if (Temperature.getInstance().getOutSideTemperature() >
+                    Temperature.getInstance().getFridgeTemperature()) {
+                if (Temperature.getInstance().getRate() > 1) {
+                    Temperature.getInstance().incrementTemperature(1);
+                } else {
+                    Temperature.getInstance().incrementTemperature(1);
+                }
+            } else {
+                Temperature.getInstance().decrementTemperature(1);
             }
-        }else{
-            Temperature.getInstance().decrementTemperature(1);
+            super.handleEvent(TemperatureChanged.getInstance());
         }
-        super.handleEvent(TemperatureChanged.getInstance());
     }
 
 }
