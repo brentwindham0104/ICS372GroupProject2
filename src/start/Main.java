@@ -1,9 +1,9 @@
 package start;
 
 import display.GUIDisplay;
-import display.MicrowaveDisplay;
+import display.RefrigeratorDisplay;
 import javafx.application.Application;
-import states.MicrowaveContext;
+import states.RefrigeratorContext;
 import timer.Clock;
 
 public class Main {
