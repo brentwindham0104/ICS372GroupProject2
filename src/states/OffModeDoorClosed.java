@@ -26,6 +26,9 @@ public class OffModeDoorClosed extends RefrigeratorState {
         RefrigeratorContext.instance().showLightOff();
         Temperature.getInstance().setOutSideTemperature(70);
         Temperature.getInstance().setFridgeTemperature(70);
+        Temperature.getInstance().setDesiredTemperature(30);
+        String desiredTemp = String.valueOf(Temperature.getInstance().getDesiredTemperature());
+        RefrigeratorContext.instance().showDesiredTemperature(desiredTemp);
         RefrigeratorContext.instance().handleEvent(TemperatureChanged.getInstance());
 
     }

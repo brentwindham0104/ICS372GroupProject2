@@ -45,6 +45,8 @@ public interface RefrigeratorDisplay {
      * indicate that refrigerator is  cooling
      */
     public void showRefrigeratorCoolingOn();
+
+    public void showDesiredTemperature(String string);
     
     /**
      * indicate inside temperature

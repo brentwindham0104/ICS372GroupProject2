@@ -212,6 +212,10 @@ public class RefrigeratorContext {
     public void showExternalTemperature(String string) {
         display.showExternalTemperature(string);
     }
+
+    public void showDesiredTemperature(String string){
+        display.showDesiredTemperature(string);
+    }
     
 }
 

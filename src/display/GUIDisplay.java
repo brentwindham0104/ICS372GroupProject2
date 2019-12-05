@@ -45,8 +45,8 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
         refrigeratorContext.setDisplay(this);
         display = this;
         coolingStatus = new Text("Cooling Off");
-        actualTemperature= new Text("Fridge Temp 31");
-        outSideTemp = new Text("Outside Temp 70");
+        actualTemperature= new Text("");
+        outSideTemp = new Text("");
         lightStatus = new Text("Light Off");
         powerStatus = new Text("Power On");
         doorStatus = new Text("Door Closed");
@@ -176,5 +176,10 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
     public void showRefrigeratorCoolingOn() {
         coolingStatus.setText("Cooling On");
 
+    }
+
+    @Override
+    public void showDesiredTemperature(String value) {
+        desiredTempratureInput.setText(value);
     }
 }

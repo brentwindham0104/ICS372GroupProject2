@@ -54,6 +54,7 @@ public abstract class RefrigeratorState {
         RefrigeratorContext.instance().showInternalTemperature(fridgeTemperature);
         RefrigeratorContext.instance().showExternalTemperature(outSideTemperature);
 
+
     }
     /**
      * Process cooling engage event
