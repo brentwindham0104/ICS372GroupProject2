@@ -20,7 +20,8 @@ public class RefrigeratorContext {
     private RefrigeratorContext() {
         Temperature.getInstance();
         instance = this;
-        currentState = IdleModeDoorClosed.instance();
+        currentState = OffModeDoorOpen.instance();
+
     }
 
     /**
