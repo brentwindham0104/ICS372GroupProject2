@@ -25,12 +25,12 @@ import states.RefrigeratorContext;
  *
  */
 public class GUIDisplay extends Application implements RefrigeratorDisplay {
-    private GUIButton powerOnSwitcher;
-    private GUIButton powerOffSwitcher;
+    private GUIButton OnSwitcher;
+    private GUIButton OffSwitcher;
     private GUIButton doorCloser;
     private GUIButton doorOpener;
-    private GUIButton goalTemperatureInputter;
-    private GUIButton externalTemperatureInputter;
+    private GUIButton goalTempInputter;
+    private GUIButton externalTempInputter;
     
     private Text powerStatus = new Text("Fridge Off");
     private Text doorStatus = new Text("Door Closed");
@@ -39,8 +39,8 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
     private Text internalStatus= new Text("       ");
     private Text externalStatus= new Text("       ");
     
-    private TextField goalTemperatureInput;
-    private TextField externalTemperatureInput;
+    private TextField goalTempInput;
+    private TextField externalTempInput;
     
     private static RefrigeratorDisplay display;
     private RefrigeratorContext refrigeratorContext;
@@ -51,12 +51,12 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
         refrigeratorContext.setDisplay(this);
         display = this;    
         
-        powerOnSwitcher = new OnButton("On");
-        powerOffSwitcher = new OffButton("Off");
+        OnSwitcher = new OnButton("On");
+        OffSwitcher = new OffButton("Off");
         doorOpener = new DoorOpenButton("open door");  
         doorCloser = new DoorCloseButton("close door"); 
-        externalTemperatureInputter = new SetExternalTempButton("Set Outside Temp");
-        goalTemperatureInputter = new SetGoalTempButton("Set Desired Fridge Temp");
+        externalTempInputter = new SetExternalTempButton("Set Outside Temp");
+        goalTempInputter = new SetGoalTempButton("Set Desired Fridge Temp");
         
         GridPane pane = new GridPane();
         pane.setHgap(10);
@@ -76,16 +76,16 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
         pane.add(powerOffSwitcher, 0, 1);
         pane.add(doorOpener, 2, 1);
         pane.add(doorCloser, 4, 1);
-        pane.add(goalTemperatureInput, 6, 1);
+        pane.add(goalTempInput, 6, 1);
         pane.add(externalStatus, 8, 1);
-        pane.add(externalTemperatureInput, 10, 1);
+        pane.add(externalTempInput, 10, 1);
         pane.add(internalStatus, 12, 1);   
         
         showDoorClosed();
         showLightOff();
         showRefrigeratorOff();
         showInternalTemp();
-        showExternalTempe();
+        showExternalTemp();
         
         Scene scene = new Scene(pane);
         primaryStage.setScene(scene);
