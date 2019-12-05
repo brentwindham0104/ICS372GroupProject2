@@ -4,7 +4,7 @@ import events.CoolingOnEvent;
 import events.DoorOpenEvent;
 import events.PowerOffEvent;
 
-public class IdlingModeDoorShut extends RefrigeratorState{
+public class IdlingModeDoorClosed extends RefrigeratorState{
     @Override
     public void handleEvent(PowerOffEvent event) {
 

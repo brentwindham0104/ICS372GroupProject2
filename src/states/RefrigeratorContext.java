@@ -23,7 +23,7 @@ public class RefrigeratorContext {
      */
     private RefrigeratorContext() {
         instance = this;
-        currentState = IdlingModeDoorShut.instance();
+        currentState = IdlingModeDoorClosed.instance();
     }
 
     /**
@@ -53,7 +53,7 @@ public class RefrigeratorContext {
      * Lets cooling on state be starting state 
      */
     public void initialize() {
-        instance.changeState(CoolingModeDoorShut.instance());
+        instance.changeState(CoolingModeDoorClosed.instance());
     }
 
     /**
@@ -153,7 +153,7 @@ public class RefrigeratorContext {
      * the outside temp, inside temp, the goal temp.
      * The method then updates the refrigerator GUI display with the new internal temp.
      */
-    public void tempCalculate(TempContext tempContext, CoolingModeDoorShut currentState) { 
+    public void tempCalculate(TempContext tempContext, CoolingModeDoorClosed currentState) { 
   	  int newTemp = 0;
   	  
   	  /* 
@@ -203,14 +203,14 @@ public class RefrigeratorContext {
   	}
     
     /**
-     * When the current state is "IdlingModeDoorShut" State this method will be called
+     * When the current state is "IdlingModeDoorClosed" State this method will be called
      * every second the clock ticks. 
      * 
      * This method is supposed to have a math functions which takes as input 
      * the outside temp, inside temp, the goal temp.
      * The method then updates the refrigerator GUI display with the new internal temp.
      */
-    public void tempCalculate(TempContext tempContext, IdlingModeDoorShut currentState) { 
+    public void tempCalculate(TempContext tempContext, IdlingModeDoorClosed currentState) { 
   	  int newTemp = 0;
   	  
   	 /* 
@@ -258,14 +258,14 @@ public class RefrigeratorContext {
   	  display.showInternalTemp(newTemp);
     }
     /**
-     * When the current state is "OffModeDoorShut" State this method will be called
+     * When the current state is "OffModeDoorClosed" State this method will be called
      * every second the clock ticks. 
      * 
      * This method is supposed to have a math functions which takes as input 
      * the outside temp, inside temp, the goal temp.
      * The method then updates the refrigerator GUI display with the new internal temp.
      */
-    public void tempCalculate(TempContext tempContext, OffModeDoorShut currentState) { 
+    public void tempCalculate(TempContext tempContext, OffModeDoorClosed currentState) { 
   	  int newTemp = 0;
   	  
   	 /* 
