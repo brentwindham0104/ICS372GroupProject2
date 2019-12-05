@@ -3,7 +3,7 @@ package states;
 import events.DoorOpenEvent;
 import events.PowerOnEvent;
 
-public class OffModeDoorShut extends RefrigeratorState {
+public class OffModeDoorClosed extends RefrigeratorState {
     @Override
     public void handleEvent(PowerOnEvent event) {
 
