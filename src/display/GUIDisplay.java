@@ -49,7 +49,7 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
         outSideTemp = new Text("Outside Temp 70");
         lightStatus = new Text("Light Off");
         powerStatus = new Text("Power On");
-        doorStatus = new Text("Door Closed");
+        doorStatus = new Text("Door Opened");
         doorCloser = new DoorCloseButton("close door");
         doorOpener = new DoorOpenButton("open door");
         powerOffButton = new OffButton("off");
