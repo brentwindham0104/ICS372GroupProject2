@@ -40,6 +40,7 @@ public abstract class RefrigeratorState {
     public void handleEvent(DoorOpenEvent event) {
 
     }
+    
     /**
      * Process door close request
      */
@@ -47,15 +48,16 @@ public abstract class RefrigeratorState {
 
     }
 
-
+    /**
+     * Process TemperatureChanged event
+     */
     public void handleEvent(TemperatureChanged event) {
         String outSideTemperature = String.valueOf(Temperature.getInstance().getOutSideTemperature());
         String fridgeTemperature = String.valueOf(Temperature.getInstance().getFridgeTemperature());
         RefrigeratorContext.instance().showInternalTemperature(fridgeTemperature);
         RefrigeratorContext.instance().showExternalTemperature(outSideTemperature);
-
-
     }
+    
     /**
      * Process cooling engage event
      */
