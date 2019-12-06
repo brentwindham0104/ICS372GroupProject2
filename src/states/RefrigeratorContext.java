@@ -36,7 +36,7 @@ public class RefrigeratorContext {
         return instance;
     }
 
-    //Yet to implement a RefridgeratorDisplay Object
+    
     public void setDisplay(RefrigeratorDisplay display){
         this.display = display;
     }
