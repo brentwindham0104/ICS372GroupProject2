@@ -1,3 +1,7 @@
+/**
+ * This class implements the button that turns off the Refrigerator.
+ * @author brentwindham
+ */
 package buttons;
 
 import events.PowerOffEvent;
@@ -10,6 +14,10 @@ public class OffButton extends GuiButton {
         setOnAction(this);
     }
 
+/**
+ * This method handles the PowerOffEvent.
+ * @param event The button push event for PowerOff
+ */
     @Override
     public void handle(ActionEvent event) {
         RefrigeratorContext.instance().handleEvent(PowerOffEvent.getInstance());

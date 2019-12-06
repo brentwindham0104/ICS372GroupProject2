@@ -1,3 +1,7 @@
+/**
+ * This class implements the GUI display for our Refrigerator Application.
+ * @author brentwindham
+ */
 package display;
 
 import buttons.*;
@@ -33,12 +37,17 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
 
 
 
-
+/**
+ * This is the singleton implementation
+ * @return Returns the GUIdisplay
+ */
     public static RefrigeratorDisplay instance(){
         return display;
     }
 
-
+/**
+ * This is the method that starts the GUI display
+ */
     @Override
     public void start(Stage primaryStage) throws Exception {
         RefrigeratorContext refrigeratorContext = RefrigeratorContext.instance();
@@ -92,6 +101,11 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
 
 
     }
+    
+    /**
+     * Getter for desired temperature
+     * @return The desired temperature
+     */
     @Override
     public  int getDesiredTemperature(){
         {
@@ -105,6 +119,10 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
         }
     }
 
+    /**
+     * Getter for external temperature
+     * @return  returns The external temperature
+     */
     @Override
     public  int getExternalTemperature(){
         {
@@ -118,66 +136,99 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
         }
     }
 
-
+    /**
+     * This shows the new internal temperature
+     * @param string The new internal temperature
+     */
     @Override
     public void showInternalTemperature(String string) {
         actualTemperature.setText("Fridge Temp "+string);
-
     }
 
+    /**
+     * This shows the new external temperature
+     * @param string The new external temperature
+     */
     @Override
     public void showExternalTemperature(String string) {
         outSideTemp.setText("Outside Temp "+ string);
-
     }
 
+    /**
+     * This shows that the refrigerator is now off.
+     */
     @Override
     public void showRefrigeratorOff() {
         powerStatus.setText("Power Off");
 
     }
 
+    /**
+     * This shows that the refrigerator is now on.
+     */
     @Override
     public void showRefrigeratorOn() {
         powerStatus.setText("Power On");
 
     }
 
+    /**
+     * This shows that the lights are on.
+     */
     @Override
     public void showLightOn() {
         lightStatus.setText("Light On");
 
     }
 
+    /**
+     * This shows that the lights are off.
+     */
     @Override
     public void showLightOff() {
         lightStatus.setText("Light Off");
 
     }
 
+    /**
+     * This shows that the door is now closed.
+     */
     @Override
     public void showDoorClosed() {
         doorStatus.setText("Door Closed");
     }
 
+    /**
+     * This shows that the door is now opened.
+     */
     @Override
     public void showDoorOpened() {
         doorStatus.setText("Door Opened");
 
     }
 
+    /**
+     * This shows that the cooling is now off.
+     */
     @Override
     public void showRefrigeratorCoolingOff() {
         coolingStatus.setText("Cooling Off");
 
     }
 
+    /**
+     * This shows that the cooling is now on.
+     */
     @Override
     public void showRefrigeratorCoolingOn() {
         coolingStatus.setText("Cooling On");
 
     }
 
+    /**
+     * This shows the new desired temperature
+     * @param value The new value for desired temperature
+     */
     @Override
     public void showDesiredTemperature(String value) {
         desiredTempratureInput.setText(value);
