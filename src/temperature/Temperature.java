@@ -32,6 +32,8 @@ public class Temperature implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
+        //if temperature is greater than 100 then the increase
+        //or decrease rate will be 2, and 1 otherwise. 
         rate = Math.abs(outSideTemperature) > 100 ?  2 : 1;
         if(fridgeTemperature<outSideTemperature){
             fridgeTemperature+=rate;
