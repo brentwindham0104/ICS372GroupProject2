@@ -1,3 +1,7 @@
+/**
+ * This class implements the button that opens the door.
+ * @author brentwindham
+ */
 package buttons;
 
 import events.DoorOpenEvent;
@@ -10,6 +14,10 @@ public class DoorOpenButton extends GuiButton{
         setOnAction(this);
     }
 
+/**
+ * This method handles the DoorOpenEvent
+ * @param event The button push event for door open.
+ */
     @Override
     public void handle(ActionEvent event) {
         RefrigeratorContext.instance().handleEvent(DoorOpenEvent.getInstance());

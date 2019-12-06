@@ -3,6 +3,7 @@ package display;
 /**
  * Specifies what the display system should do. Note that the implementation has
  * a lot of freedom to choose its display.
+ * @author Brentwindham
  */
 public interface RefrigeratorDisplay {
   
@@ -46,6 +47,10 @@ public interface RefrigeratorDisplay {
      */
     public void showRefrigeratorCoolingOn();
 
+    /**
+     * Indicates desired temperature
+     * @param string The desired temperature
+     */
     public void showDesiredTemperature(String string);
     
     /**
@@ -58,8 +63,15 @@ public interface RefrigeratorDisplay {
      */
     public void showExternalTemperature(String string);
 
-
+	/**
+	 * Getter for Desired temperature
+	 * @return Returns Desired temperature
+	 */
     public int getDesiredTemperature();
 
+    /**
+     * Getter for external temperature
+     * @return Returns external temperature
+     */
     public int getExternalTemperature();
 }
