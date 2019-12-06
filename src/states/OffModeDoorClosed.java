@@ -41,7 +41,7 @@ public class OffModeDoorClosed extends RefrigeratorState {
     @Override
     public void handleEvent(PowerOnEvent event) {
         leave();
-        RefrigeratorContext.instance().changeState(CoolingModeDoorClosed.instance());
+        RefrigeratorContext.instance().changeState(IdleModeDoorClosed.instance());
 
 
     }
