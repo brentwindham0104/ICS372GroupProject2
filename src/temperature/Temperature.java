@@ -65,11 +65,22 @@ public class Temperature implements PropertyChangeListener {
         }
          //if fridge temperature is less than the desired temperature,
         //cooling off event will be sent, and cooling on event otherwise.
-        if(fridgeTemperature<=desiredTemperature-3){
-            RefrigeratorContext.instance().handleEvent(CoolingOffEvent.getInstance());
-        }else if(fridgeTemperature>=desiredTemperature+3){
-            RefrigeratorContext.instance().handleEvent(CoolingOnEvent.getInstance());
+        
+        if (rate == 1 ) {
+        	if(fridgeTemperature<=desiredTemperature-2){
+                RefrigeratorContext.instance().handleEvent(CoolingOffEvent.getInstance());
+            }else if(fridgeTemperature>=desiredTemperature+4){
+                RefrigeratorContext.instance().handleEvent(CoolingOnEvent.getInstance());
+            }
+        } else {
+        	if(fridgeTemperature<=desiredTemperature-1){
+                RefrigeratorContext.instance().handleEvent(CoolingOffEvent.getInstance());
+            }else if(fridgeTemperature>=desiredTemperature+5){
+                RefrigeratorContext.instance().handleEvent(CoolingOnEvent.getInstance());
+            }
+            
         }
+        
             RefrigeratorContext.instance().handleEvent(TemperatureChanged.getInstance());
     }
     
