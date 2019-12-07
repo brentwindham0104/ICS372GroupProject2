@@ -38,9 +38,7 @@ public class OffModeDoorOpen extends RefrigeratorState {
      */
     @Override
     public void enter() {
-        Temperature.getInstance().setOutSideTemperature(70);
-        Temperature.getInstance().setFridgeTemperature(70);
-        Temperature.getInstance().setDesiredTemperature(30);
+
         RefrigeratorContext.instance().showRefrigeratorOff();
         RefrigeratorContext.instance().showDoorOpened();
         RefrigeratorContext.instance().showRefrigeratorCoolingOff();
