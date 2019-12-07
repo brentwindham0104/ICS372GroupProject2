@@ -1,5 +1,6 @@
 /**
  * This class implements the event for Power Off.
+ *
  * @author Brentwindham
  */
 package events;

@@ -1,5 +1,6 @@
 /**
  * This class implements the event for DoorClose.
+ *
  * @author Brentwindham
  */
 package events;

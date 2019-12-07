@@ -1,5 +1,6 @@
 /**
  * This class implements the event for Power On
+ *
  * @author Brentwindham
  */
 package events;

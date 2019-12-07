@@ -1,5 +1,6 @@
 /**
  * This class implements the event for Cooling On.
+ *
  * @author brentwindham
  */
 package events;

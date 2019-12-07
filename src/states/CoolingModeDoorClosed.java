@@ -58,7 +58,9 @@ public class CoolingModeDoorClosed extends RefrigeratorState {
     }
     
     /**
-     * Request to refrigerator context to handle power off event
+     * Request to refrigerator context to handle corresponding state change
+     * @param
+     *        event the reference for the power off  event.
      */
     @Override
     public void handleEvent(PowerOffEvent event) {
@@ -67,7 +69,10 @@ public class CoolingModeDoorClosed extends RefrigeratorState {
     }
     
     /**
-     * Request to refrigerator context to handle door open event
+     * Request to refrigerator context to handle corresponding state change
+     * @param
+     *       event the reference for the open door  event.
+     *
      */
     @Override
     public void handleEvent(DoorOpenEvent event) {
@@ -76,7 +81,9 @@ public class CoolingModeDoorClosed extends RefrigeratorState {
     }
     
     /**
-     * Request to refrigerator context to handle cooling off event
+     * Request to refrigerator context to handle corresponding state change
+     * @param
+     *     event the reference for the cooling off event.
      */
     @Override
     public void handleEvent(CoolingOffEvent event) {
@@ -85,11 +92,17 @@ public class CoolingModeDoorClosed extends RefrigeratorState {
     }
    
     /**
-     * Request to Refirgeratorstate to handle temperature changed event. 
+     * Request to Refirgerator state to handle temperature changed event.
+     * @param
+     *        event the reference for the temperature changed event.
      * 
      */
     @Override
     public void handleEvent(TemperatureChanged event) {
+        //closing the door will help cooling the fridge.
+        //the numbers are chosen so that increasing temperature
+        //of the Temperature class does not cancel out the decreasing
+        //temperature of the cooling state of the fridge.
         if(Temperature.getInstance().getOutSideTemperature()>
                 Temperature.getInstance().getFridgeTemperature()){
             if(Temperature.getInstance().getRate()>1){

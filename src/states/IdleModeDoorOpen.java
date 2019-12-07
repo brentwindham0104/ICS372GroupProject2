@@ -59,7 +59,9 @@ public class IdleModeDoorOpen extends RefrigeratorState{
     }
     
     /**
-     * Request to refrigerator context to handle power off event
+     * Request to refrigerator context to handle corresponding state change
+     * @param
+     *       event the reference for the power off event
      */
     @Override
     public void handleEvent(PowerOffEvent event) {
@@ -67,7 +69,9 @@ public class IdleModeDoorOpen extends RefrigeratorState{
     }
     
     /**
-     * Request to refrigerator context to handle door close event
+     * Request to refrigerator context to handle corresponding state change
+     * @param
+     *      event the reference for the door closed event
      */
     @Override
     public void handleEvent(DoorCloseEvent event) {
@@ -75,7 +79,9 @@ public class IdleModeDoorOpen extends RefrigeratorState{
     }
     
     /**
-     * Request to refrigerator context to handle cooling on event
+     * Request to refrigerator context to handle corresponding state change
+     * @param
+     *     event the reference for the cooling on event
      */
     @Override
     public void handleEvent(CoolingOnEvent event) {
@@ -83,11 +89,19 @@ public class IdleModeDoorOpen extends RefrigeratorState{
     }
     
     /**
-     * Request to RefirgeratorState to handle temperature changed event. 
+     * Request to Refirgerator State to handle temperature changed event.
+     * opening of a door affects the rate at which the temperature increases
+     * or decreases.
+     * @param
+     *       event the event that corresponds to change of temperature
      * 
      */
     @Override
     public void handleEvent(TemperatureChanged event) {
+        //if temperature is increasing, opening the door
+        //will increase the rate at which the temperature
+        //increases, and increase the rate at which the temperature
+        //decreases, if temperature is decreasing.
         if(Temperature.getInstance().getOutSideTemperature()>
                 Temperature.getInstance().getFridgeTemperature()){
             Temperature.getInstance().incrementTemperature(1);

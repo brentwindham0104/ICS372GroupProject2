@@ -1,5 +1,6 @@
 /**
  * This class implements the button that closes the door.
+ *
  * @author brentwindham
  */
 package buttons;
@@ -13,10 +14,10 @@ public class DoorCloseButton extends GuiButton {
         super(name);
     }
 
-/**
- * This method  handles the DoorCloseEvent
- * @param event This is the button push event for DoorClose
- */
+    /**
+     * This method  handles the DoorCloseEvent
+     * @param event This is the button push event for DoorClose
+     */
     @Override
     public void handle(ActionEvent event) {
         RefrigeratorContext.instance().handleEvent(DoorCloseEvent.getInstance());

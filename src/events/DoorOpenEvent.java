@@ -1,5 +1,6 @@
 /**
  * This class implements the event for Door open.
+ *
  * @author Brentwindham
  */
 package events;
