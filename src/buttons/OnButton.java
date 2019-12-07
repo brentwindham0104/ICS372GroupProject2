@@ -1,3 +1,7 @@
+/**
+ * This class implements the button that turns on the Refrigerator.
+ * @author brentwindham
+ */
 package buttons;
 
 import events.PowerOnEvent;
@@ -10,6 +14,10 @@ public class OnButton extends GuiButton{
         setOnAction(this);
     }
 
+    /**
+     * This method handles the PowerOnEvent.
+     * @param event The button push event for PowerOn
+     */    
     @Override
     public void handle(ActionEvent event) {
         RefrigeratorContext.instance().handleEvent(PowerOnEvent.getInstance());
