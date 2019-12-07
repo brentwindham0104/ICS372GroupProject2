@@ -1,3 +1,7 @@
+/**
+ * This class is the driver for the whole project.
+ * @author brentwindham
+ */
 package start;
 
 import display.GUIDisplay;

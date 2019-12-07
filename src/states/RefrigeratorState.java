@@ -5,6 +5,7 @@ import temperature.Temperature;
 
 /**
  * Super class for all states
+ * @author Brent
  * 
  *
  */

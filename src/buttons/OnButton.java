@@ -10,6 +10,11 @@ import javafx.event.ActionEvent;
 import states.RefrigeratorContext;
 
 public class OnButton extends GuiButton {
+	
+	/**
+	 * Private constructor for singleton.
+	 * @param name The words displayed on the button.
+	 */
     public OnButton(String name) {
         super(name);
         setOnAction(this);

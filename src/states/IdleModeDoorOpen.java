@@ -9,7 +9,7 @@ import temperature.Temperature;
 /**
  * Represents the state of refrigerator powered on with door opened
  * and not cooling.
- *
+ *@author Brent
  */
 public class IdleModeDoorOpen extends RefrigeratorState{
     private static IdleModeDoorOpen instance;

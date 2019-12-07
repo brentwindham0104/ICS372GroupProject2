@@ -7,6 +7,7 @@ import temperature.Temperature;
 
 /**
  * The context stores the context info for states
+ * @author Brent
  */
 public class RefrigeratorContext {
     private RefrigeratorDisplay display;
