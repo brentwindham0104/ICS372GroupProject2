@@ -61,7 +61,9 @@ public class OffModeDoorOpen extends RefrigeratorState {
     }
     
     /**
-     * Request to refrigerator context to handle door close event
+     * Request to refrigerator context to handle corresponding state change
+     * @param
+     *        event the reference for door close event.
      */
     @Override
     public void handleEvent(DoorCloseEvent event) {
@@ -69,11 +71,17 @@ public class OffModeDoorOpen extends RefrigeratorState {
     }
     
     /**
-     * Request to RefirgeratorState to handle temperature changed event. 
+     * Request to Refirgerator State to handle temperature changed event.
+     * @param
+     *       event the reference to the Temperature Changed event.
      * 
      */
     @Override
     public void handleEvent(TemperatureChanged event) {
+        //if temperature is increasing, opening the door
+        //will increase the rate at which the temperature
+        //increases, and increase the rate at which the temperature
+        //decreases, if temperature is decreasing.
         if (Temperature.getInstance().getFridgeTemperature() != Temperature.getInstance().getOutSideTemperature()) {
             if (Temperature.getInstance().getOutSideTemperature() >
                     Temperature.getInstance().getFridgeTemperature()) {

@@ -22,13 +22,7 @@ public class Temperature implements PropertyChangeListener {
 
     /**
      * Making it a singleton, requests the observable add it as a listener.
-  	 * Lets default 
-  	 * @field outSideTemperature
-  	 * 			outside temp = 70
-  	 * @field fridgeTemperature
-  	 * 			fridge temp  = 70 
-  	 * @field DesiredTemperature
-  	 *			desiredtemp = 30
+  	 * Lets default
      */
     private Temperature(){
         outSideTemperature = 70;
@@ -48,19 +42,29 @@ public class Temperature implements PropertyChangeListener {
         }
         return instance;
     }
-    
+
+    /**
+     * This will be triggered by the observable class(Clock) and will
+     * send cooling on or off events when the fridge temperature approaches
+     * the desired temperature
+     * @param evt
+     *           clock tick event sent from observable class Clock
+     */
     
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         //if temperature is greater than 100 then the increase
         //or decrease rate will be 2, and 1 otherwise.
         rate = Math.abs(outSideTemperature) > 100 ?  2 : 1;
+        //this below statements will attempt to approach the
+        //fridge temperature to outside temperature
         if(fridgeTemperature<outSideTemperature){
             fridgeTemperature+=rate;
         }else if(fridgeTemperature>outSideTemperature){
             fridgeTemperature-=rate;
         }
-
+         //if fridge temperature is less than the desired temperature,
+        //cooling off event will be sent, and cooling on event otherwise.
         if(fridgeTemperature<=desiredTemperature-3){
             RefrigeratorContext.instance().handleEvent(CoolingOffEvent.getInstance());
         }else if(fridgeTemperature>=desiredTemperature+3){
@@ -72,7 +76,8 @@ public class Temperature implements PropertyChangeListener {
     /**
 	 * setter for outside temperature
      * @param
-     * 		temperature;
+     * 		temperature the temperature to change the outside temperature to
+     *
      */
     public void setOutSideTemperature(int temperature){
         outSideTemperature=temperature;
@@ -81,7 +86,7 @@ public class Temperature implements PropertyChangeListener {
     /**
 	 * setter for desired temperature
      * @param
-     * 		desiredTemperature;
+     * 		temperature the desired temperature to be set to
      */
     public void setDesiredTemperature(int temperature){
         desiredTemperature = temperature;
@@ -90,7 +95,7 @@ public class Temperature implements PropertyChangeListener {
     /**
 	 * setter for fridge temperature
      * @param
-     * 		fridgeTemperature;
+     * 		temperature the fridge temperature to set to
      */
     public void setFridgeTemperature(int temperature){
         fridgeTemperature= temperature;
@@ -99,7 +104,7 @@ public class Temperature implements PropertyChangeListener {
     /**
 	 * getter for outside temperature value
      * @return
-     * 		outsideTemperature;
+     * 		  the outside temperature value;
      */
     public int getOutSideTemperature() {
         return outSideTemperature;
@@ -108,7 +113,7 @@ public class Temperature implements PropertyChangeListener {
     /**
 	 * getter for fridge temperature value
      * @return
-     * 		fridgeTemperature;
+     * 		the fridge temperature
      */
     public int getFridgeTemperature() {
         return fridgeTemperature;
@@ -117,7 +122,7 @@ public class Temperature implements PropertyChangeListener {
     /**
 	 * getter for outside temperature value
      * @return
-     * 		desiredTemperature;
+     * 		the desired temperature
      */
     public int getDesiredTemperature() {
         return desiredTemperature;
@@ -125,7 +130,7 @@ public class Temperature implements PropertyChangeListener {
     
     /**
      * @param
-     * 		rate;
+     * 		rate the rate at which to decrement the internal temperature
      */
     public void decrementTemperature(int rate){
         fridgeTemperature-=rate;
@@ -133,7 +138,7 @@ public class Temperature implements PropertyChangeListener {
     
     /**
      * @param
-     * 		rate;
+     * 		rate the rate at which to increment the internal temperature
      */
     public void incrementTemperature(int rate){
         fridgeTemperature+=rate;
@@ -142,7 +147,7 @@ public class Temperature implements PropertyChangeListener {
     /**
 	 * getter for rate of temperature change
      * @return
-     * 		rate;
+     * 		rate of temperature changes
      */
     public int getRate(){
         return rate;

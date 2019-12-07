@@ -1,5 +1,6 @@
 /**
  * This class implements the GUI display for our Refrigerator Application.
+ *
  * @author brentwindham
  */
 package display;
@@ -36,25 +37,24 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
     private TextField desiredTempratureInput;
 
 
-
-/**
- * This is the singleton implementation
- * @return Returns the GUIdisplay
- */
-    public static RefrigeratorDisplay instance(){
+    /**
+     * This is the singleton implementation
+     * @return Returns the GUIdisplay
+     */
+    public static RefrigeratorDisplay instance() {
         return display;
     }
 
-/**
- * This is the method that starts the GUI display
- */
+    /**
+     * This is the method that starts the GUI display
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         RefrigeratorContext refrigeratorContext = RefrigeratorContext.instance();
         refrigeratorContext.setDisplay(this);
         display = this;
         coolingStatus = new Text("Cooling Off");
-        actualTemperature= new Text("Fridge Temp 70");
+        actualTemperature = new Text("Fridge Temp 70");
         outSideTemp = new Text("Outside Temp 70");
         lightStatus = new Text("Light Off");
         powerStatus = new Text("Power Off");
@@ -79,14 +79,14 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
         pane.add(lightStatus, 3, 0);
         pane.add(powerStatus, 4, 0);
         pane.add(doorStatus, 5, 0);
-        pane.add(doorCloser,0,1);
-        pane.add(doorOpener,1,1);
-        pane.add(powerOnButton,2,1);
-        pane.add(powerOffButton,3,1);
-        pane.add(externalTemperatureInput,0,2);
-        pane.add(outsideTempSetter,1,2);
-        pane.add(desiredTempratureInput,2,2);
-        pane.add(desiredTempSetter,3,2);
+        pane.add(doorCloser, 0, 1);
+        pane.add(doorOpener, 1, 1);
+        pane.add(powerOnButton, 2, 1);
+        pane.add(powerOffButton, 3, 1);
+        pane.add(externalTemperatureInput, 0, 2);
+        pane.add(outsideTempSetter, 1, 2);
+        pane.add(desiredTempratureInput, 2, 2);
+        pane.add(desiredTempSetter, 3, 2);
         Scene scene = new Scene(pane);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Refrigerator Simulator");
@@ -101,18 +101,18 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
 
 
     }
-    
+
     /**
      * Getter for desired temperature
      * @return The desired temperature
      */
     @Override
-    public  int getDesiredTemperature(){
+    public int getDesiredTemperature() {
         {
-            try{
-                Integer temperature= Integer.parseInt(desiredTempratureInput.getText());
+            try {
+                Integer temperature = Integer.parseInt(desiredTempratureInput.getText());
                 return temperature;
-            }catch (IllegalFormatConversionException e){
+            } catch (IllegalFormatConversionException e) {
                 desiredTempratureInput.setText("0");
                 return 0;
             }
@@ -121,15 +121,15 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
 
     /**
      * Getter for external temperature
-     * @return  returns The external temperature
+     * @return returns The external temperature
      */
     @Override
-    public  int getExternalTemperature(){
+    public int getExternalTemperature() {
         {
-            try{
-                Integer temperature= Integer.parseInt(externalTemperatureInput.getText());
+            try {
+                Integer temperature = Integer.parseInt(externalTemperatureInput.getText());
                 return temperature;
-            }catch (IllegalFormatConversionException e){
+            } catch (IllegalFormatConversionException e) {
                 desiredTempratureInput.setText("0");
                 return 0;
             }
@@ -142,7 +142,7 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
      */
     @Override
     public void showInternalTemperature(String string) {
-        actualTemperature.setText("Fridge Temp "+string);
+        actualTemperature.setText("Fridge Temp " + string);
     }
 
     /**
@@ -151,7 +151,7 @@ public class GUIDisplay extends Application implements RefrigeratorDisplay {
      */
     @Override
     public void showExternalTemperature(String string) {
-        outSideTemp.setText("Outside Temp "+ string);
+        outSideTemp.setText("Outside Temp " + string);
     }
 
     /**

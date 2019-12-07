@@ -4,37 +4,35 @@ import events.DoorOpenEvent;
 import events.PowerOnEvent;
 import events.TemperatureChanged;
 import temperature.Temperature;
+
 /**
  * Represents the state Refrigerator off with the door closed.
- *
  */
 public class OffModeDoorClosed extends RefrigeratorState {
     private static OffModeDoorClosed instance;
-    
+
     /**
      * Private for the singleton pattern
      */
-    private OffModeDoorClosed(){
+    private OffModeDoorClosed() {
 
     }
-    
+
     /**
      * For singleton
-     * 
+     *
      * @return the object
      */
-    public static OffModeDoorClosed instance(){
-        if(instance==null){
+    public static OffModeDoorClosed instance() {
+        if (instance == null) {
             instance = new OffModeDoorClosed();
         }
         return instance;
     }
-    
+
     /**
-     * 
-     * Updates indicators on GUI display to refelect the current state. The method 
+     * Updates indicators on GUI display to refelect the current state. The method
      * enter() is tasked with completing initialization requirements.
-     * 
      */
     @Override
     public void enter() {
@@ -50,29 +48,31 @@ public class OffModeDoorClosed extends RefrigeratorState {
         RefrigeratorContext.instance().handleEvent(TemperatureChanged.getInstance());
 
     }
-    
+
     /**
-     * 
-     * Updates indicators on GUI display to refelect the current state. The method 
+     * Updates indicators on GUI display to refelect the current state. The method
      * leave() is tasked with completing exiting clean up.
-     * 
      */
     @Override
     public void leave() {
 
     }
-    
+
     /**
-     * Request to refrigerator context to handle power on event
+     * Request to refrigerator context to handle corresponding state change
+     *
+     * @param event the reference for the power on event.
      */
     @Override
     public void handleEvent(PowerOnEvent event) {
         leave();
         RefrigeratorContext.instance().changeState(IdleModeDoorClosed.instance());
     }
-    
+
     /**
-     * Request to refrigerator context to handle door open event
+     * Request to refrigerator context to handle corresponding state change
+     *
+     * @param event the reference for the door open event.
      */
     @Override
     public void handleEvent(DoorOpenEvent event) {

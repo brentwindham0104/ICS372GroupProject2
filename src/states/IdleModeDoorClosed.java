@@ -56,7 +56,9 @@ public class IdleModeDoorClosed extends RefrigeratorState{
     }
     
     /**
-     * Request to refrigerator context to handle power off event
+     * Request to refrigerator context to handle corresponding state change
+     * @param
+     *        event the reference for the power off event.
      */
     @Override
     public void handleEvent(PowerOffEvent event) {
@@ -65,7 +67,9 @@ public class IdleModeDoorClosed extends RefrigeratorState{
     }
     
     /**
-     * Request to refrigerator context to handle door open event
+     * Request to refrigerator context to handle corresponding state change
+     * @param
+     *        event the reference for the door open event.
      */
     @Override
     public void handleEvent(DoorOpenEvent event) {
@@ -74,7 +78,9 @@ public class IdleModeDoorClosed extends RefrigeratorState{
     }
    
     /**
-     * Request to refrigerator context to handle cooling on event
+     * Request to refrigerator context to handle corresponding state change
+     * @param
+     *       event   the reference for the cooling on event.
      */
     @Override
     public void handleEvent(CoolingOnEvent event) {
