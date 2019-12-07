@@ -11,6 +11,7 @@ import java.beans.PropertyChangeListener;
 /**
  * Implements PropertyChangeListener. An Observer Object which uses
  * PropertyChangeListener to implement the Observer pattern.
+ * @author Brent
  *
  */
 public class Temperature implements PropertyChangeListener {

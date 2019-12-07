@@ -6,6 +6,7 @@ import temperature.Temperature;
 
 /**
  * Represents the state Refrigerator off with the door closed.
+ * @author Brent
  *
  */
 public class OffModeDoorOpen extends RefrigeratorState {

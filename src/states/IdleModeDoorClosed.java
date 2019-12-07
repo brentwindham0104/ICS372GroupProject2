@@ -6,6 +6,7 @@ import events.PowerOffEvent;
 /**
  * Represents the state of refrigerator powered on with door closed
  * and not cooling.
+ * @author Brent
  *
  */
 public class IdleModeDoorClosed extends RefrigeratorState{

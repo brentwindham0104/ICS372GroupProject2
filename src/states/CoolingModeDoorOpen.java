@@ -8,6 +8,7 @@ import temperature.Temperature;
 
 /**
  * Represents the state of cooling with the door opened.
+ * @author Brent
  */
 public class CoolingModeDoorOpen extends RefrigeratorState {
     private static CoolingModeDoorOpen instance;
