@@ -1,0 +1,10 @@
+This project was made for ICS 372.  The point of this project is to demonstrate how software design patterns such as 
+the State pattern and the Singleton pattern can be used.
+
+Another purpose of this project is to demonstrate excellent documentation skills.  Every class and aspect of this project has the correct 
+documentation written with the code.
+
+This project is a refrigerator temperature simulator.  The state of the temperature changes depending on what state the fridge is in. 
+For example the refrigerator cools down if the power is on and the internal temperature is more than the desired temperature.
+
+    
